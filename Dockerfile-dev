@@ -16,7 +16,8 @@ RUN apt-get update \
         xml \
         zip \
     && a2enmod rewrite \
-    && pecl install redis
+    && pecl install redis \
+    && docker-php-ext-enable redis 
 
 RUN apt update -y && apt install nano
 
