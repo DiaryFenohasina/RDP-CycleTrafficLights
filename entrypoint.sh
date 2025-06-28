@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "Starting entrypoint script..."
 
+php artisan schedule:work &
+
 # Vérifier si Redis est installé
 if command -v redis-server > /dev/null; then
     echo "Redis server found at: $(which redis-server)"
