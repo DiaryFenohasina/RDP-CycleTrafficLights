@@ -13,6 +13,19 @@ services:
       - .:/var/www/html:rw
     networks:
       - shared-network
+
+  db-rdp:
+    image: postgres:latest
+    ports:
+      - "8066:5432"
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - shared-network
+
+
 networks:
   shared-network:
     external: true      
